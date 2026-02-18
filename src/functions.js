@@ -12,7 +12,9 @@ class Todo {
     this.listTodo.push(this.val);
     console.log("Adding todo:", this.val);
     document.querySelector(cs).value = ""; // Clear the input field
-    return this.listTodo; // Prevent form submission
+    document.querySelector('.todoList').innerHTML = this.listTodo.map(todo => `<li>${todo} delete</li>`).join('');
+    //alert(this.getTodos());
+    return false; // Prevent form submission
     // Here you can add code to save the todo to a database or local storage
   }
 
