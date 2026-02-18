@@ -13,6 +13,26 @@ class Todo {
     };
   }
 
+
+  // Add this method to your Todo class in functions.js
+addTodoFromValue(value) {
+    const val = value.trim();
+    if (val === "") {
+        alert("Please enter a todo item.");
+        return false;
+    }
+
+    this.listTodo.push({
+        text: val,
+        completed: false
+    });
+    
+    this.saveToLocalStorage();
+    console.log("Adding todo:", val);
+    
+    return true;
+}
+
   // Notify all listeners of changes
   notifyListeners() {
     this.listeners.forEach(callback => callback(this.listTodo));

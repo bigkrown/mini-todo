@@ -4,12 +4,28 @@
   padding: 2rem;
 }
 
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
+/* Responsive logo for mobile */
+@media (max-width: 768px) {
+  .logo {
+    height: 4em;
+    padding: 1em;
+  }
+}
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -20,6 +36,19 @@
 h1 {
   font-size: 2.5em;
   text-align: center;
+}
+
+/* Responsive heading for mobile */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
 }
 
 @keyframes logo-spin {
@@ -41,8 +70,24 @@ h1 {
   padding: 2em;
 }
 
+/* Responsive card for mobile */
+@media (max-width: 768px) {
+  .card {
+    padding: 1em;
+  }
+}
+
 .read-the-docs {
   color: #888;
+}
+
+/* Input container for better mobile layout */
+.input-container {
+  display: flex;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1em;
 }
 
 .add-todo-input {
@@ -52,6 +97,33 @@ h1 {
   border-radius: 7px;
   width: 500px;
   font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive input for tablets */
+@media (max-width: 1024px) {
+  .add-todo-input {
+    width: 400px;
+    padding: 1.5em;
+  }
+}
+
+/* Responsive input for mobile */
+@media (max-width: 768px) {
+  .add-todo-input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5em;
+    padding: 1.2em;
+    font-size: 16px; /* Better for mobile readability */
+  }
+}
+
+@media (max-width: 480px) {
+  .add-todo-input {
+    padding: 1em;
+    font-size: 14px;
+  }
 }
 
 .add-todo-input:focus {
@@ -68,11 +140,34 @@ h1 {
   cursor: pointer;
   font-weight: bold;
   font-size: large;
-
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 120px;
 }
 
 .add-todo-button:hover {
   background-color: #21a1f1;
+  transform: translateY(-2px);
+}
+
+.add-todo-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive button for mobile */
+@media (max-width: 768px) {
+  .add-todo-button {
+    width: 100%;
+    padding: 1em;
+    font-size: medium;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-todo-button {
+    padding: 0.9em;
+    font-size: small;
+  }
 }
 
 .todo-list {
@@ -85,45 +180,213 @@ h1 {
   padding: 0.3em 0.6em;
   background-color: #ff4d4d;
   border: none;
-  border-radius: 4px;
+  border-radius: 7px;
   color: white;
   cursor: pointer;
-  border-radius: 7px;
   font-weight: bold;
   font-size: large;
-
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap; /* Prevents button text from wrapping */
 }
 
 .deleteBtn:hover {
   background-color: #ff1a1a;
+  transform: scale(1.05);
 }
 
-.todoList{
+.deleteBtn:active {
+  transform: scale(1);
+}
+
+/* Responsive delete button for mobile */
+@media (max-width: 768px) {
+  .deleteBtn {
+    margin-left: 0.5em;
+    padding: 0.4em 0.8em;
+    font-size: medium;
+    min-width: 70px; /* Ensures button is still tappable */
+  }
+}
+
+@media (max-width: 480px) {
+  .deleteBtn {
+    padding: 0.5em 1em;
+    font-size: small;
+    min-width: 60px;
+  }
+}
+
+.todoList {
   margin-top: 1em;
   width: 100%;
   margin-left: -40px;
 }
 
+/* Responsive todo list container */
+@media (max-width: 768px) {
+  .todoList {
+    margin-left: -20px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todoList {
+    margin-left: 0;
+    padding: 0 5px;
+  }
+}
+
 .todoItem {
   display: flex;
-  align-items: left;
+  align-items: center;
   list-style: none;
   margin-bottom: 0.5em;
   width: 100%;
   font-size: 20px;
+  word-break: break-word; /* Prevents long words from breaking layout */
+  padding-right: 10px;
+}
+
+/* Responsive todo item for mobile */
+@media (max-width: 768px) {
+  .todoItem {
+    font-size: 18px;
+    align-items: flex-start; /* Better alignment for wrapped text */
+  }
+}
+
+@media (max-width: 480px) {
+  .todoItem {
+    font-size: 16px;
+    flex-direction: column; /* Stack checkbox and text on very small screens */
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
 .todoList li {
   display: flex;
-  align-items: left;
+  align-items: center;
   list-style: none;
   margin-bottom: 0.5em;
   width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.todoList li:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Responsive list items for mobile */
+@media (max-width: 768px) {
+  .todoList li {
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee; /* Add separation on mobile */
+  }
+  
+  .todoList li:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .todoList li {
+    flex-direction: column; /* Stack todo and delete button on very small screens */
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px 8px;
+  }
+}
+
+/* Checkbox styling */
+.todoItem input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #ff4d4d; /* Modern browsers - colors the checkbox */
+}
+
+/* Responsive checkbox for mobile */
+@media (max-width: 768px) {
+  .todoItem input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todoItem input[type="checkbox"] {
+    width: 24px; /* Larger touch target on mobile */
+    height: 24px;
+  }
 }
 
 .no-todos {
   font-style: normal;
   text-align: center;
   width: 100%;
+  padding: 2em;
+  color: #888;
 }
 
+/* Responsive empty state for mobile */
+@media (max-width: 768px) {
+  .no-todos {
+    padding: 1.5em;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .no-todos {
+    padding: 1em;
+    font-size: 1em;
+  }
+}
+
+/* Add container for the whole app */
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive container */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+  button, 
+  .deleteBtn, 
+  .add-todo-button,
+  input[type="checkbox"] {
+    cursor: default; /* Remove hover effects on touch devices */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+  }
+  
+  /* Increase touch target size for better mobile usability */
+  .deleteBtn {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-todo-button {
+    min-height: 52px;
+  }
+  
+  .todoItem {
+    min-height: 44px; /* Better touch targets */
+  }
+}
