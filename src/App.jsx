@@ -2,13 +2,10 @@ import './App.css'
 import { useState,useEffect } from 'react'
 import ShowTodo from './pages/ShowTodo'
 import AddTodo from './pages/AddTodo';
-
-
-
+import Todo from './functions';
 
 
 function App() {
-//  const [showTodo, setShowTodo] = useState(false);
   return (
     <>
       <div>
