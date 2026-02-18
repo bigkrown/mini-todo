@@ -29,7 +29,7 @@ https://shmini-todo-app.netlify.app/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/bigkrown/todo-app.git
+   git clone https://github.com/bigkrown/mini-todo.git
    cd mini-todo
 
 2. **Install dependencies**
